@@ -3,7 +3,7 @@ var pass = document.getElementById("password");
 var conf_pass = document.getElementById("conf-password");
 function validatePassword(){
 
-	if(pass.value != conf_pass.value){
+	if(pass.value !== conf_pass.value){
 		conf_pass.setCustomValidity("Wachtwoord komt niet overeen.");
 	} else {
 		conf_pass.setCustomValidity("");

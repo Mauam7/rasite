@@ -10,9 +10,9 @@
     $datenow = date("Y,m,d H:i:s");
     
       $sql = "INSERT INTO tickets 
-      (title, discription, priority,date_time) 
+      (title, discription, priority,date_time, status) 
       VALUES
-      ('$title','$discription','$priority', '$datenow')";
+      ('$title','$discription','$priority', '$datenow', 0)";
 
       if($conn->query($sql)){
         $title = "Ticket aangemaakt.";

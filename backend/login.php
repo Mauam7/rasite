@@ -9,13 +9,14 @@ if(!empty($_SESSION['username'])){
 
 if(isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST"){
 	$username = $conn->real_escape_string($_POST['username']);
-  $password = $conn->real_escape_string($_POST['password']);
+    $password = $conn->real_escape_string($_POST['password']);
 	$password_hash = password_hash($conn->real_escape_string($_POST['password']), PASSWORD_BCRYPT, array('cost'=>12));
   	$sql = "SELECT password, user_rights FROM users WHERE username = '$username'";
   	$result = $conn->query($sql);
     $row = $result->fetch_assoc();
     if(password_verify($password, $row['password'])){
   		$_SESSION['username'] = $username;
+  		$_SESSION['user_rights'] = $row['user_rights'];
   		header('Location: admin.php');
   	}else{
   		$error = "Username or password incorrect.";
@@ -75,18 +76,18 @@ if(isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST"){
       </article>
       <article class="footer-content">
         <h2>Listings</h2>
-        <a href="backend/login.php">Login</a>
+        <a href="login.php">Login</a>
       </article>
       <article class="footer-content">
         <h2>Support</h2>
-        <a href="backend/login.php">Login</a>
+        <a href="login.php">Login</a>
       </article>
       <article class="footer-content">
         <h2>FAQ</h2>
-        <a href="backend/login.php">Login</a>
+        <a href="login.php">Login</a>
       </article>
     </footer>
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 
     </body>
 </html>

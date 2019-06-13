@@ -13,7 +13,7 @@
     <header>
       <img src="image/logo.jpg" />
       <nav>
-        <a href="#">Home</a>
+        <a href="index.php">Home</a>
         <a href="#">Price</a>
         <a href="#">How we work</a>
         <a href="#">About Us</a>
